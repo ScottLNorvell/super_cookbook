@@ -12,8 +12,13 @@ Ingredient.delete_all
 
 c = Cookbook.create title: "Scott Shares the Love", author: "Scott", publication_year: 2013
 
-c.recipes << Recipe.new( title: "Squid Salad")
+c.recipes << Recipe.new( title: "Squid Salad" )
 
 r = c.recipes.first
 
-r.ingredients << Ingredient.new( name: "Squid" )
+["Squid", "Mayo", "Dill", "Sherry Vinegar"].each do |ingredient|
+	r.ingredients << Ingredient.new( name: ingredient )	
+end
+
+Cookbook.create title: "Scott Shares the Love: Again!", author: "Scott"
+
